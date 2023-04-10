@@ -13,27 +13,30 @@ public class Main extends TestAbstract{
 		jogador2.iniciarJogador();
 		new Player().iniciarJogador();
 		*/
-		//new Main().intanceMain2();
-		new Main().intanceMain2();
-	}
-	
-	public void iniciarJogo() {
-		
+
+		//new Main().instanceMain2();
+		new Main().instanceMain2();
+		new Main().chamarMetodoAbstract();
 	}
 	
 	public void chamarMetodoAbstract() {
-		this.iniciarJogo();
+		//como o próprio nome da classe diz chamar método abstrato
+		iniciarJogo();
+		iniciarJogador();
+		inimigo();
+	}
+	public void instanceMain2() {
+	new Main2().print1();	
 	}
 	
-	public void intanceMain2() {
-		new Main2().print1();
-	}
 	private class Main2{
 		public void print1() {
-			System.out.println("Chamando meu método");
-			
+			System.out.println("Chamando metodo");
 		}
-		
+	}
+	
+	
+}
 	}
 	
 }
