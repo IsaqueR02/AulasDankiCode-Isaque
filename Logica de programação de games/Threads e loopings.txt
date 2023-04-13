@@ -1,0 +1,48 @@
+package inicio_logica_games;
+
+public class Game implements Runnable{
+//Treads e loopings
+	
+	private boolean isRunning;//Permite continuar rodando
+	private Thread thread;
+	
+	
+	public static void main(String[] args){
+		Game jogo = new Game();
+		jogo.start();
+	}
+	
+	//o metodo synchronized sincroniza os outros atributos para ele
+	public synchronized void start(){
+		isRunning = true;//Para continuar rodando preciso falar que é verdadeiro
+		thread = new Thread(this);
+		thread.start();
+	}
+	
+	public void tick(){
+		//Atualiza o Jogo
+		System.out.println("Tick");
+		
+	}
+	
+	public void render(){
+		//Renderizar o Jogo
+		System.out.println("Render");
+		
+	}
+
+	@Override
+	public void run(){
+		
+		while(isRunning) {
+			tick();
+			render();
+			try {
+				Thread.sleep(1000);//diminui a velocidade de looping
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+}
